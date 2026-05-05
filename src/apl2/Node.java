@@ -1,6 +1,9 @@
 // arquivo: src/apl2/Node.java
 
 // TODO: Colocar a identificação dos(as) integrantes aqui.
+// Nome: Gabriel Pereira de Souza RA: 10440766
+// Nome: Joaquim Lange Lima Amaral RA: 10738376
+// Nome: Lucas dos Santos Bartolomeu RA: 10747984
 
 package apl2;
 
@@ -16,6 +19,27 @@ package apl2;
 
 public class Node {
 	
-	// TODO: Implementar a classe conforme o enunciado da atividade Apl2.
+	private int key;
+	private String id;
+	private String nome;
+	private float nota;
+	private Node left, right;
 	
+	public Node () {
+		this(-1, null, null, null, null, null);
+	}
+
+	public Node (int key, String id, String nome, float nota, Node left, Node right) {
+		this.key = key;
+		this.id = id;
+		this.nome = nome;
+		this.nota = nota;
+		this.left = left;
+		this.right = right;
+	}
+
+
+	
+
+
 }
