@@ -26,7 +26,7 @@ public class Node {
 	private Node left, right;
 	
 	public Node () {
-		this(-1, null, "", 0, null, null);
+		this(-1, null, "", 99.9f, null, null);
 	}
 
 	public Node (int key, String id, String nome, float nota, Node left, Node right) {
@@ -38,6 +38,60 @@ public class Node {
 		this.right = right;
 	}
 
+	public int getKey() {
+		return key;
+	}
+
+	public void setKey(int key) {
+		this.key = key;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public float getNota() {
+		return nota;
+	}
+
+	public void setNota(float nota) {
+		this.nota = nota;
+	}
+
+	public Node getLeft() {
+		return left;
+	}
+
+	public void setLeft(Node left) {
+		this.left = left;
+	}
+
+	public Node getRight() {
+		return right;
+	}
+
+	public void setRight(Node right) {
+		this.right = right;
+	}
+
+	@Override
+    public String toString() {
+	      return "[dados: (" + key + ";" + id + ";" + nome + ";" + nota + ")]";
+    }
+
+	
 
 	
 
