@@ -87,9 +87,9 @@ public class Node {
 	}
 
 	@Override
-    public String toString() {
-	      return "[dados: (" + key + ";" + id + ";" + nome + ";" + nota + ")]";
-    }
+	public String toString() {
+    	return "(" + id + "; " + nome + "; " + nota + ")";
+	}
 
 
 }
