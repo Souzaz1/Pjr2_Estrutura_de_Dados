@@ -91,9 +91,5 @@ public class Node {
 	      return "[dados: (" + key + ";" + id + ";" + nome + ";" + nota + ")]";
     }
 
-	
-
-	
-
 
 }

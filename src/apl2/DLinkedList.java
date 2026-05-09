@@ -1,6 +1,9 @@
 // arquivo: src/apl2/DLinkedList.java
 
 // TODO: Colocar a identificação dos(as) integrantes aqui.
+// Nome: Gabriel Pereira de Souza RA: 10440766
+// Nome: Joaquim Lange Lima Amaral RA: 10738376
+// Nome: Lucas dos Santos Bartolomeu RA: 10747984 
 
 package apl2;
 
@@ -15,6 +18,9 @@ package apl2;
 // comportamento descrito em cada operação.
 
 public class DLinkedList {
+	private Node head, tail;
+	private int size;
+
 	
 	// TODO: Implementar a classe conforme o enunciado da atividade Apl2.
 
@@ -22,26 +28,39 @@ public class DLinkedList {
 // OPERAÇÃO:		Método construtor
 // COMPORTAMENTO:	Cria uma lista vazia.
 	public DLinkedList() {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		this.head = null;
+		this.tail = null;
+		this.size = 0;
 	}
 
 
 // OPERAÇÃO:		insert(<dados da pessoa>)
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no início da lista.
-	public void insert(/*dados da pessoa*/) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+	public void insert(int key, String id, String nome, float nota) {
+		Node aux = new Node(key, id, nome, nota, null, this.head);
+		if (this.head != null) {
+			this.head.setLeft(aux);
+		} else {
+			this.tail = aux;
+		}
+		this.head = aux;
+		this.size++;
 	}
 
 
 // OPERAÇÃO:		append(<dados da pessoa>)
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no final da lista.
-	public void append(/*dados da pessoa*/) {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+	public void append(int key, String id, String nome, float nota) {
+		Node aux = new Node (key, id, nome, nota, this.tail, null);
+		if (this.tail != null) {
+			this.tail.setRight(aux);
+		} else {
+			this.head = aux;
+		}
+		this.tail = aux;
+		this.size++;
 	}
 
 
@@ -50,8 +69,18 @@ public class DLinkedList {
 //					nó removido.
 //					Ou retorna null caso a lista esteja vazia.
 	public Node removeHead() {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		if(isEmpty()) {
+			return null;
+		}
+		Node aux = this.head;
+		this.head = this.head.getRight();
+		if (this.head != null) {
+			this.head.setLeft(null);
+		}else {
+			this.tail = null;
+		}
+		this.size--;
+		return aux;
 	}
 
 
@@ -60,8 +89,18 @@ public class DLinkedList {
 //					nó removido.
 //					Ou retorna null caso a lista esteja vazia.
 	public Node removeTail() {
-		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		if(isEmpty()) {
+			return null;
+		}
+		Node aux = this.tail;
+		this.tail = this.tail.getLeft();
+		if (this.tail != null) {
+			this.tail.setRight(null);
+		}else {
+			this.head = null;
+		}
+		this.size--;
+		return aux;
 	}
 
 
