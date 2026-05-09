@@ -26,7 +26,7 @@ public class Node {
 	private Node left, right;
 	
 	public Node () {
-		this(-1, null, null, null, null, null);
+		this(-1, null, "", 0, null, null);
 	}
 
 	public Node (int key, String id, String nome, float nota, Node left, Node right) {
