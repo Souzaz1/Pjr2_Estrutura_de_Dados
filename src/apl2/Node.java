@@ -19,31 +19,21 @@ package apl2;
 
 public class Node {
 	
-	private int key;
 	private String id;
 	private String nome;
 	private float nota;
 	private Node left, right;
 	
 	public Node () {
-		this(-1, null, "", 99.9f, null, null);
+		this(null, "", 99.9f, null, null);
 	}
 
-	public Node (int key, String id, String nome, float nota, Node left, Node right) {
-		this.key = key;
+	public Node (String id, String nome, float nota, Node left, Node right) {
 		this.id = id;
 		this.nome = nome;
 		this.nota = nota;
 		this.left = left;
 		this.right = right;
-	}
-
-	public int getKey() {
-		return key;
-	}
-
-	public void setKey(int key) {
-		this.key = key;
 	}
 
 	public String getId() {

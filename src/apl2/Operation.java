@@ -4,6 +4,9 @@
 // arquivo: src/apl2/Operation.java
 
 // TODO: Colocar a identificação dos(as) integrantes aqui.
+// Nome: Gabriel Pereira de Souza RA: 10440766
+// Nome: Lucas dos Santos Bartolomeu RA: 10747984
+// Nome: Joaquim Lange Lima Amaral RA: 10738376 
 
 package apl2;
 
@@ -20,7 +23,21 @@ public class Operation {
 	 */
 	public static DLinkedList map(final LinkedListOriginal original) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList newList = new DLinkedList();
+		NodeOriginal aux = original.getHead();
+		while (aux != null) {
+			String novoId = "23.S1-" + String.format("%03d", aux.getId());
+			float novaNota; 
+			if (aux.getInteiro() == -1 || aux.getDecimo() == -1) { 
+				novaNota = 99.9f;
+			} else {
+				String notaJunta = aux.getInteiro() + "." + aux.getDecimo();
+				novaNota = Float.parseFloat(notaJunta);
+			}
+			newList.append(novoId, aux.getNome(), novaNota);
+			aux = aux.getNext();
+		}
+		return newList;
 	}
 
 	/**
@@ -34,7 +51,15 @@ public class Operation {
 	 */
 	public static DLinkedList filterRemoveNonGraded(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList newList = new DLinkedList();
+		Node aux = data.getHead();
+		while (aux != null) { 
+			if (aux.getNota() != 99.9f) { 
+				newList.append(aux.getId(), aux.getNome(), aux.getNota());
+			}
+			aux = aux.getRight();
+		}
+		return newList;
 	}
 
 	/**
@@ -48,7 +73,15 @@ public class Operation {
 	 */
 	public static DLinkedList filterRemoveGraded(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList newList = new DLinkedList();
+		Node aux = data.getHead();
+		while (aux != null) { 
+			if (aux.getNota() == 99.9f) {
+				newList.append(aux.getId(), aux.getNome(), aux.getNota());
+			}
+			aux = aux.getRight();
+		}
+		return newList;
 	}
 
 	/**
@@ -64,7 +97,16 @@ public class Operation {
 	 */
 	public static DLinkedList filterRemoveBelowAverage(final DLinkedList data, float average) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		DLinkedList newList = new DLinkedList();
+		Node aux = data.getHead();
+
+		while (aux != null) {
+			if (aux.getNota() > average) {
+				newList.append(aux.getId(), aux.getNome(), aux.getNota());
+			}
+			aux = aux.getRight();
+		}
+		return newList;
 	}
 	
 	/**
@@ -78,7 +120,19 @@ public class Operation {
 	 */
 	public static float reduce(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
+		float sum = 0.0f;
+		int count = 0; 
+		Node aux = data.getHead();
+
+		while (aux != null) { 
+			sum += aux.getNota();
+			count++;
+			aux = aux.getRight();
+		}
+		if (count == 0) {
+			return 0.0f; 
+		}
+		return sum / count;
 	}
 
 	/**
@@ -93,7 +147,13 @@ public class Operation {
 	 */
 	public static String mapToString(final DLinkedList data) {
 		// TODO: Implementar o método e remover o lançamento de exceção abaixo.
-		throw new UnsupportedOperationException("Método ainda não implementado.");
-	}
+		StringBuilder sb = new StringBuilder(); 
+		Node aux = data.getHead();
 
+		while (aux != null) { 
+			sb.append(aux.getId()).append(";").append(aux.getNome()).append(";").append(aux.getNota()).append("\n");
+			aux = aux.getRight();
+		}
+		return sb.toString();
+	}
 }

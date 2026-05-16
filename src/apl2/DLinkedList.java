@@ -37,8 +37,8 @@ public class DLinkedList {
 // OPERAÇÃO:		insert(<dados da pessoa>)
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no início da lista.
-	public void insert(int key, String id, String nome, float nota) {
-		Node aux = new Node(key, id, nome, nota, null, this.head);
+	public void insert(String id, String nome, float nota) {
+		Node aux = new Node(id, nome, nota, null, this.head);
 		if (this.head != null) {
 			this.head.setLeft(aux);
 		} else {
@@ -52,8 +52,8 @@ public class DLinkedList {
 // OPERAÇÃO:		append(<dados da pessoa>)
 // COMPORTAMENTO:	Aloca um Node que contém os <dados da pessoa> e insere o
 //					novo nó no final da lista.
-	public void append(int key, String id, String nome, float nota) {
-		Node aux = new Node (key, id, nome, nota, this.tail, null);
+	public void append(String id, String nome, float nota) {
+		Node aux = new Node (id, nome, nota, this.tail, null);
 		if (this.tail != null) {
 			this.tail.setRight(aux);
 		} else {
